@@ -1,3 +1,4 @@
+import lab.model.Company;
 import lab.model.Country;
 import lab.model.Person;
 import lab.model.UsualPerson;
@@ -8,6 +9,7 @@ import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class HelloWorldTest {
 
@@ -30,6 +32,16 @@ public class HelloWorldTest {
 		assertEquals(expectedPerson, person);
 		System.out.println(person);
 	}
+
+	@Test
+	public void testCompany() {
+		Company company = context.getBean("company", Company.class);
+        System.out.println(company.getCountry() + " " + company.getPerson().getName());
+        assertEquals(company.getCompanyName(), "SberTech");
+		//assertTrue(company.getPerson() ==  (UsualPerson) context.getBean("person", Person.class));
+
+	}
+
 
 	private UsualPerson getExpectedPerson() {
 		UsualPerson person = new UsualPerson();
