@@ -15,7 +15,7 @@
         <!--<property name="codeName" value="RU"/>-->
     <!--</bean>-->
 
-    <bean id="country" class="lab.model.Country"
+    <bean lazy-init="true" id="country" class="lab.model.Country"
         p:id="1"
         p:name="Russia"
         p:codeName="RU"
